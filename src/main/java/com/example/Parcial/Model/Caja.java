@@ -19,17 +19,14 @@ public class Caja {
     @OneToMany(mappedBy = "caja")
     private List<Venta> ventas;
 
-    // Constructor vacío
     public Caja() {}
 
-    // Constructor lleno
     public Caja(Integer cajaId, String cajaNombre, BigDecimal cajaEfectivo) {
         this.cajaId = cajaId;
         this.cajaNombre = cajaNombre;
         this.cajaEfectivo = cajaEfectivo;
     }
 
-    // Getters y Setters
     public Integer getCajaId() {
         return cajaId;
     }
@@ -62,7 +59,6 @@ public class Caja {
         this.ventas = ventas;
     }
 
-    // Método toString
     @Override
     public String toString() {
         return "Caja{" +

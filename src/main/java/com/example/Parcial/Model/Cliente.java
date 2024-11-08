@@ -32,10 +32,8 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private List<Venta> ventas;
 
-    // Constructor vacío
     public Cliente() {}
 
-    // Constructor lleno
     public Cliente(Integer clienteId, String clienteNumeroDocumento, String clienteNombre, String clienteApellido,
                    String clienteDireccion, String clienteTelefono, String clienteEmail) {
         this.clienteId = clienteId;
@@ -47,7 +45,6 @@ public class Cliente {
         this.clienteEmail = clienteEmail;
     }
 
-    // Getters y Setters
     public Integer getClienteId() {
         return clienteId;
     }
@@ -112,7 +109,6 @@ public class Cliente {
         this.ventas = ventas;
     }
 
-    // Método toString
     @Override
     public String toString() {
         return "Cliente{" +

@@ -25,10 +25,8 @@ public class Venta {
     @OneToMany(mappedBy = "venta")
     private List<VentaDetalle> ventaDetalles;
 
-    // Constructor vacío
     public Venta() {}
 
-    // Constructor lleno
     public Venta(String ventaId, LocalDate ventaFecha, Cliente cliente, Caja caja) {
         this.ventaId = ventaId;
         this.ventaFecha = ventaFecha;
@@ -36,7 +34,6 @@ public class Venta {
         this.caja = caja;
     }
 
-    // Getters y Setters
     public String getVentaId() {
         return ventaId;
     }
@@ -77,7 +74,6 @@ public class Venta {
         this.ventaDetalles = ventaDetalles;
     }
 
-    // Método toString
     @Override
     public String toString() {
         return "Venta{" +

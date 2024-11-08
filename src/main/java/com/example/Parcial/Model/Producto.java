@@ -37,10 +37,8 @@ public class Producto {
     @OneToMany(mappedBy = "producto")
     private List<VentaDetalle> ventaDetalles;
 
-    // Constructor vacío
     public Producto() {}
 
-    // Constructor lleno
     public Producto(Integer productoId, String productoNombre, Integer productoStockTotal, String productoTipoUnidad,
                     BigDecimal productoPrecioCompra, BigDecimal productoPrecioVenta, String productoModelo,
                     String productoEstado, Categoria categoria) {
@@ -55,7 +53,6 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    // Getters y Setters
     public Integer getProductoId() {
         return productoId;
     }
@@ -136,7 +133,6 @@ public class Producto {
         this.ventaDetalles = ventaDetalles;
     }
 
-    // Método toString
     @Override
     public String toString() {
         return "Producto{" +

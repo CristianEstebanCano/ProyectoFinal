@@ -26,10 +26,8 @@ public class VentaDetalle {
     @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
 
-    // Constructor vacío
     public VentaDetalle() {}
 
-    // Constructor lleno
     public VentaDetalle(Integer ventaDetalleId, Integer ventaDetalleCantidad, BigDecimal ventaDetalleTotal,
                         String ventaDetalleDescripcion, Venta venta, Producto producto) {
         this.ventaDetalleId = ventaDetalleId;
@@ -40,7 +38,6 @@ public class VentaDetalle {
         this.producto = producto;
     }
 
-    // Getters y Setters
     public Integer getVentaDetalleId() {
         return ventaDetalleId;
     }
@@ -89,7 +86,6 @@ public class VentaDetalle {
         this.producto = producto;
     }
 
-    // Método toString
     @Override
     public String toString() {
         return "VentaDetalle{" +

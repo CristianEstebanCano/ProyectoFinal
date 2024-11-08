@@ -17,16 +17,13 @@ public class Categoria {
     @OneToMany(mappedBy = "categoria")
     private List<Producto> productos;
 
-    // Constructor vacío
     public Categoria() {}
 
-    // Constructor lleno
     public Categoria(Integer categoriaId, String categoriaNombre) {
         this.categoriaId = categoriaId;
         this.categoriaNombre = categoriaNombre;
     }
 
-    // Getters y Setters
     public Integer getCategoriaId() {
         return categoriaId;
     }
@@ -51,7 +48,6 @@ public class Categoria {
         this.productos = productos;
     }
 
-    // Método toString
     @Override
     public String toString() {
         return "Categoria{" +
