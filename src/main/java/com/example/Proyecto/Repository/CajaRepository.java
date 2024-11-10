@@ -14,7 +14,7 @@ public interface CajaRepository extends JpaRepository<Caja, Integer> {
     @Query(value = "SELECT ca.caja_id, ca.caja_nombre, SUM(cp.compra_detalle_total) AS total_efectivo " +
             "FROM caja ca " +
             "INNER JOIN compra c ON ca.caja_id = c.caja_id " +
-            "INNER JOIN compraproducto cp ON c.compra_id = cp.compra_id " +
+            "INNER JOIN compra_producto cp ON c.compra_id = cp.compra_id " +
             "GROUP BY ca.caja_id, ca.caja_nombre " +
             "ORDER BY total_efectivo DESC", nativeQuery = true)
     List<Object[]> obtenerTotalEfectivoPorCaja();

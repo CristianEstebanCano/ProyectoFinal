@@ -24,9 +24,9 @@ public interface CompraRepository extends JpaRepository<Compra, Integer> {
             "cp.compraproducto_id, cp.compra_detalle_cantidad, cp.compra_detalle_total, p.producto_nombre " +
             "FROM compra c " +
             "INNER JOIN cliente cl ON c.cliente_id = cl.cliente_id " +
-            "INNER JOIN compraproducto cp ON c.compra_id = cp.compra_id " +
+            "INNER JOIN compra_producto cp ON c.compra_id = cp.compra_id " +
             "INNER JOIN producto p ON cp.producto_id = p.producto_id " +
-            "WHERE c.cliente_id = :clienteId " +
+            "WHERE cl.cliente_id = :clienteId " +
             "ORDER BY c.compra_fecha DESC", nativeQuery = true)
     List<Object[]> findComprasConDetallesByCliente(@Param("clienteId") int clienteId);
 
@@ -37,7 +37,7 @@ public interface CompraRepository extends JpaRepository<Compra, Integer> {
             "FROM compra c " +
             "INNER JOIN cliente cl ON c.cliente_id = cl.cliente_id " +
             "INNER JOIN caja ca ON c.caja_id = ca.caja_id " +
-            "INNER JOIN compraproducto cp ON c.compra_id = cp.compra_id " +
+            "INNER JOIN compra_producto cp ON c.compra_id = cp.compra_id " +
             "INNER JOIN producto p ON cp.producto_id = p.producto_id " +
             "INNER JOIN categoria cat ON p.categoria_id = cat.categoria_id " +
             "ORDER BY c.compra_fecha DESC", nativeQuery = true)

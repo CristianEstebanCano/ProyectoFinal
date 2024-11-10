@@ -75,10 +75,8 @@ public class CompraProducto {
         if (producto != null && producto.getProducto_precio_venta() > 0) {
 
             BigDecimal precioVenta = BigDecimal.valueOf(producto.getProducto_precio_venta());
-
             System.out.println("Precio de Venta: " + precioVenta);
             System.out.println("Cantidad: " + compra_detalle_cantidad);
-
             BigDecimal cantidad = new BigDecimal(compra_detalle_cantidad);
             BigDecimal total = precioVenta.multiply(cantidad);
 

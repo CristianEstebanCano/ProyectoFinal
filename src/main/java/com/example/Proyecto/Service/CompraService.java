@@ -33,7 +33,7 @@ public class CompraService {
     // Buscar
     public Compra obtenerPorId(int id) {
         Optional<Compra> compra = compraRepository.findById(id);
-        return compra.orElse(null); // Retorna null si no existe la compra
+        return compra.orElse(null);
     }
 
     // Guardar
