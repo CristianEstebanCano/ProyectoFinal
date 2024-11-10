@@ -12,19 +12,33 @@ public class ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
 
+    //Obtener todos los productos
     public List<Producto> obtenerTodos() {
         return productoRepository.findAll();
     }
 
-    public Producto obtenerPorId(Integer id) {
+    //Buscar
+    public Producto obtenerPorId(int id) {
         return productoRepository.findById(id).orElse(null);
     }
 
+    //Guardar
     public Producto guardar(Producto producto) {
         return productoRepository.save(producto);
     }
 
-    public void eliminar(Integer id) {
+    //Actualizar
+    public Producto actualizar(Producto producto) {
+        return productoRepository.save(producto);
+    }
+
+    //Eliminar
+    public void eliminar(int id) {
         productoRepository.deleteById(id);
+    }
+
+    // 2. Obtener todos los productos con sus categorías
+    public List<Object[]> obtenerProductosConCategoria() {
+        return productoRepository.findProductosConCategoria();
     }
 }

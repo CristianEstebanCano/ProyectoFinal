@@ -1,7 +1,8 @@
 package com.example.Parcial.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import java.math.BigDecimal;
+
 import java.util.List;
 
 @Entity
@@ -9,62 +10,51 @@ public class Caja {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cajaId;
+    private int caja_id;
 
-    @Column(length = 100, nullable = false)
-    private String cajaNombre;
-
-    private BigDecimal cajaEfectivo;
+    private String caja_nombre;
 
     @OneToMany(mappedBy = "caja")
-    private List<Venta> ventas;
+    @JsonIgnore
+    private List<Compra> compras;
 
-    public Caja() {}
-
-    public Caja(Integer cajaId, String cajaNombre, BigDecimal cajaEfectivo) {
-        this.cajaId = cajaId;
-        this.cajaNombre = cajaNombre;
-        this.cajaEfectivo = cajaEfectivo;
+    public Caja() {
     }
 
-    public Integer getCajaId() {
-        return cajaId;
+    public Caja(int caja_id, String caja_nombre) {
+        this.caja_id = caja_id;
+        this.caja_nombre = caja_nombre;
     }
 
-    public void setCajaId(Integer cajaId) {
-        this.cajaId = cajaId;
+    public int getCaja_id() {
+        return caja_id;
     }
 
-    public String getCajaNombre() {
-        return cajaNombre;
+    public void setCaja_id(int caja_id) {
+        this.caja_id = caja_id;
     }
 
-    public void setCajaNombre(String cajaNombre) {
-        this.cajaNombre = cajaNombre;
+    public String getCaja_nombre() {
+        return caja_nombre;
     }
 
-    public BigDecimal getCajaEfectivo() {
-        return cajaEfectivo;
+    public void setCaja_nombre(String caja_nombre) {
+        this.caja_nombre = caja_nombre;
     }
 
-    public void setCajaEfectivo(BigDecimal cajaEfectivo) {
-        this.cajaEfectivo = cajaEfectivo;
+    public List<Compra> getCompras() {
+        return compras;
     }
 
-    public List<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(List<Venta> ventas) {
-        this.ventas = ventas;
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
     }
 
     @Override
     public String toString() {
         return "Caja{" +
-                "cajaId=" + cajaId +
-                ", cajaNombre='" + cajaNombre + '\'' +
-                ", cajaEfectivo=" + cajaEfectivo +
+                "caja_id=" + caja_id +
+                ", caja_nombre='" + caja_nombre + '\'' +
                 '}';
     }
 }

@@ -5,38 +5,47 @@ import com.example.Parcial.Service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/clientes")
+@RequestMapping("/clientes")
 public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
 
+    //Obtener lista de clientes
     @GetMapping
     public List<Cliente> obtenerTodos() {
         return clienteService.obtenerTodos();
     }
 
+    //Buscar
     @GetMapping("/{id}")
-    public Cliente obtenerPorId(@PathVariable Integer id) {
+    public Cliente obtenerPorId(@PathVariable int id) {
         return clienteService.obtenerPorId(id);
     }
 
+    //Guardar
     @PostMapping
-    public Cliente crear(@RequestBody Cliente cliente) {
+    public Cliente guardar(@RequestBody Cliente cliente) {
         return clienteService.guardar(cliente);
     }
 
+    //Actualizar
     @PutMapping("/{id}")
-    public Cliente actualizar(@PathVariable Integer id, @RequestBody Cliente cliente) {
-        cliente.setClienteId(id);
-        return clienteService.guardar(cliente);
+    public Cliente actualizar(@PathVariable int id, @RequestBody Cliente clienteActualizado) {
+        return clienteService.actualizar(id, clienteActualizado);
     }
 
+    //Eliminar
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Integer id) {
+    public void eliminar(@PathVariable int id) {
         clienteService.eliminar(id);
+    }
+
+    // 1.1 Conteo compras por cliente ordenado
+    @GetMapping("/comprasconteo")
+    public List<Object[]> obtenerConteoComprasPorCliente() {
+        return clienteService.obtenerConteoComprasPorCliente();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.Parcial.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,35 +10,36 @@ public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer categoriaId;
+    private int categoria_id;
 
-    @Column(length = 50, nullable = false)
-    private String categoriaNombre;
+    private String categoria_nombre;
 
     @OneToMany(mappedBy = "categoria")
+    @JsonIgnore
     private List<Producto> productos;
 
-    public Categoria() {}
-
-    public Categoria(Integer categoriaId, String categoriaNombre) {
-        this.categoriaId = categoriaId;
-        this.categoriaNombre = categoriaNombre;
+    public Categoria() {
     }
 
-    public Integer getCategoriaId() {
-        return categoriaId;
+    public Categoria(int categoria_id, String categoria_nombre) {
+        this.categoria_id = categoria_id;
+        this.categoria_nombre = categoria_nombre;
     }
 
-    public void setCategoriaId(Integer categoriaId) {
-        this.categoriaId = categoriaId;
+    public int getCategoria_id() {
+        return categoria_id;
     }
 
-    public String getCategoriaNombre() {
-        return categoriaNombre;
+    public void setCategoria_id(int categoria_id) {
+        this.categoria_id = categoria_id;
     }
 
-    public void setCategoriaNombre(String categoriaNombre) {
-        this.categoriaNombre = categoriaNombre;
+    public String getCategoria_nombre() {
+        return categoria_nombre;
+    }
+
+    public void setCategoria_nombre(String categoria_nombre) {
+        this.categoria_nombre = categoria_nombre;
     }
 
     public List<Producto> getProductos() {
@@ -51,8 +53,8 @@ public class Categoria {
     @Override
     public String toString() {
         return "Categoria{" +
-                "categoriaId=" + categoriaId +
-                ", categoriaNombre='" + categoriaNombre + '\'' +
+                "categoria_id=" + categoria_id +
+                ", categoria_nombre='" + categoria_nombre + '\'' +
                 '}';
     }
 }
